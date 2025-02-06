@@ -88,7 +88,60 @@ public class Main {
    String removedElement3 = toDoList.remove(0);
    System.out.println(toDoList);
 
+   // 7.3 Traversing with Loops
+   // ArrayList can only hold objects / ex. int = Integer
+   ArrayList<Integer> bingoNumbers = new ArrayList<Integer>();
+   bingoNumbers.add(99);
+   bingoNumbers.add(2);
+   bingoNumbers.add(15);
+   bingoNumbers.add(25);
+   bingoNumbers.add(77);
+   bingoNumbers.add(89);
 
+   // ENHANCED FOR-EACH LOOP
+   int total = 0;
+   int product = 1;
+   for (Integer num : bingoNumbers) {
+      total = total + num; // same as total += num
+      product *= num;
+   }
+   System.out.println("Sum of bingo numbers: " + total);
+   System.out.println("Product of bingo numbers " + product);
+
+   // STANDARD FOR LOOP (indexed)
+   int sum = 0;
+   // DIFFERENT from Arrays"
+   // 1. use ArrayList.size() instead of Array.lengtj
+   // 2. use ArrayList.get(i) instead of Array[i]
+   for (int i=0; i < bingoNumbers.size(); i++) {
+      sum = sum + bingoNumbers.get(i);
+   }
+   System.out.println(sum);
+
+   // WHILE LOOPS (for conditionals, when you don't know exactly how many times to loop)
+   ArrayList<String> watchList = new ArrayList<String>();
+   watchList.add("Suits LA");
+   watchList.add("Chicago Med / PD");
+   watchList.add("The Rookie");
+   watchList.add("A Simple Favor 2");
+   watchList.add("Back In Action");
+   watchList.add("How I Met Your Mother");
+
+   // Example: search & remove
+   boolean found = false; // have'nt searched yet
+   int index = 0; // need index to use list methods
+   String watchedShow = "Back In Action";
+   // loop while current index is still less than list size 
+   while (index < watchList.size()) {
+      if (watchedShow.equals(watchList.get(index))){
+         watchList.remove(index);
+         found = true;
+      }
+      else {
+         index++;
+      }
+   }
+   System.out.println(watchList);
 
 
    }
